@@ -13,4 +13,3 @@ This application allow you to :
 Here's some [[http://code.google.com/p/blackout-android/wiki/screenshots|screenshots]]. 
 
 {{http://blackout-android.googlecode.com/svn/wiki/images/splash.png}}
-
