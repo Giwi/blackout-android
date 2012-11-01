@@ -1,0 +1,16 @@
+=BlackOut Android App=
+
+
+Android application for the [[http://www.theblackout.fr|BlackOut]] band.
+
+This application allow you to :
+  * follow the news of the band
+  * be aware of the dates and places of incoming shows
+  * listen to our music  
+  * follow us on Twitter
+  * directly dive into our wonderful [[http://www.theblackout.fr|website]]. 
+
+Here's some [[http://code.google.com/p/blackout-android/wiki/screenshots|screenshots]]. 
+
+{{http://blackout-android.googlecode.com/svn/wiki/images/splash.png}}
+
