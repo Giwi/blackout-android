@@ -8,7 +8,7 @@ This application allow you to :
   * be aware of the dates and places of incoming shows
   * listen to our music  
   * follow us on Twitter
-  * directly dive into our wonderful [[http://www.theblackout.fr|website]]. 
+  * directly dive into our wonderfull [[http://www.theblackout.fr|website]]. 
 
 Here's some [[http://code.google.com/p/blackout-android/wiki/screenshots|screenshots]]. 
 
