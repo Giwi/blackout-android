@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/frameLayout1"
+     android:layout_width="fill_parent"  
+    android:layout_height="fill_parent"  
+    android:orientation="vertical" 
+    android:background="@drawable/bg" >
+
+    <ImageView
+        android:id="@+id/splashscreen"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:contentDescription="@string/splash"
+        android:scaleType="centerCrop"
+        android:src="@drawable/splash"
+        android:visibility="visible" />
+    
+<ViewStub
+    android:id="@+id/vsHeader"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:inflatedId="@+id/header"
+    android:layout="@layout/header"
+    android:visibility="visible" />
+ 
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:clipChildren="true"
+        android:orientation="vertical"
+        android:visibility="visible" >
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:contentDescription="@string/logo"
+            android:src="@drawable/logo"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:id="@+id/line1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:baselineAligned="false"
+            android:visibility="visible" >
+
+            <Button
+                android:id="@+id/newsBtn"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:background="@drawable/btbg"
+                android:drawableTop="@drawable/ic_news"
+                android:gravity="bottom|center_horizontal"
+                android:padding="10dip"
+                android:hapticFeedbackEnabled="true"
+                android:text="@string/news" />
+
+            <Button
+                android:id="@+id/calendarBtn"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:background="@drawable/btbg"
+                android:drawableTop="@drawable/ic_cal"
+                android:gravity="bottom|center_horizontal"
+                android:padding="10dip"
+                android:hapticFeedbackEnabled="true"
+                android:text="@string/calendar" />
+
+            <Button
+                android:id="@+id/mediaBtn"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:background="@drawable/btbg"
+                android:drawableTop="@drawable/ic_media"
+                android:gravity="bottom|center_horizontal"
+                android:padding="10dip"
+                android:hapticFeedbackEnabled="true"
+                android:text="@string/media" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/line2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:baselineAligned="false"
+            android:visibility="visible" >
+            
+            <Button
+                android:id="@+id/website"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:background="@drawable/btbg"
+                android:drawableTop="@drawable/ic_web"
+                android:gravity="bottom|center_horizontal"
+                android:padding="10dip"
+                android:hapticFeedbackEnabled="true"
+                android:text="@string/website" />
+
+            <Button
+                android:id="@+id/twitter"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:background="@drawable/btbg"
+                android:drawableTop="@drawable/ic_tweeter"
+                android:gravity="bottom|center_horizontal"
+                android:padding="10dip"
+                android:hapticFeedbackEnabled="true"
+                android:text="@string/twitter" />
+
+            <Button
+                android:id="@+id/aboutBtn"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:background="@drawable/btbg"
+                android:drawableTop="@drawable/info"
+                android:gravity="bottom|center_horizontal"
+                android:padding="10dip"
+                android:hapticFeedbackEnabled="true"
+                android:text="@string/about" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView1"
+        style="@style/news_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/featured"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+<android.support.v4.view.ViewPager
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/awesomepager"
+    style="@style/news_ticker"
+    android:background="@drawable/shadow_layer"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+</android.support.v4.view.ViewPager>
+
+
+
+</LinearLayout>

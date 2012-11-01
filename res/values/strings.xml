@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BlackOut</string>
+    <string name="news">News</string>
+    <string name="calendar">Agenda</string>
+    <string name="media">Medias</string>
+    <string name="about">A propos</string>
+    <string name="main_no_items">Pas de nouvelle, bonne nouvelle.</string>
+    <string name="main_no_calendar_items">Pas de concert en vue, contactez nous.</string>
+    <string name="no_media">Pas de média en ligne.</string>
+    <string name="read_more">Suite</string>
+    <string name="wait_title">Veuillez patienter &#8230;</string>
+    <string name="wait_message">Chargement des données &#8230;</string>
+    <string name="about_mess1">BlackOut est un groupe finistérien, formé en mai 2007 d\'influences diverses.</string>
+    <string name="about_mess2">BlackOut est composé de :</string>
+    <string name="about_mess3">Mallorie (Chant), \nXavier (Guitare), \nJérôme (Guitare), \nPascal (Basse), \nPhilippe (Batterie)</string>
+    <string name="about_mess4">Blackout produit des compositions originales colorées pop / rock.\n\n\n(copyright Giwi Softwares <a href="http://giwi.free.fr">http://giwi.free.fr</a>)<br /><br /></string>
+    <string name="website">Site web</string>
+    <string name="twitter">Twitter</string>
+    <string name="share">Partager</string>
+    <string name="storecal">Programmer</string>
+    <string name="logo">logo</string>
+    <string name="splash">splash</string>
+    <string name="gigpress_feed">http://www.theblackout.fr/wordpress/?feed=gigpress</string>
+    <string name="mp3_feed">http://www.theblackout.fr/safe/Demo01/rss.php</string>
+    <string name="news_feed">http://www.theblackout.fr/wordpress/?feed=rss2</string>
+    <string name="featured_feed">http://www.theblackout.fr/wordpress/category/featured/feed/</string>
+    <string name="buffering">buffering &#8230;</string>
+    <string name="menu_refresh">Mettre à jour</string>
+    <string name="refresh_succes">Mise à jour réussie</string>
+    <string name="webSiteLink">http://www.theblackout.fr</string>
+    <string name="tweeterLink">http://twitter.com/BlackoutBand</string>
+    <string name="twitter_account">BlackOutBand</string>
+    <string name="notification.title">BlackOut</string>
+    <string name="notification.ticker.media">BlackOut : un nouveau morceau en ligne</string>
+    <string name="notification.text.media">Un  nouveau morceau vient d\'être publié</string>
+    <string name="notification.ticker.media.plural">BlackOut : de nouveaux morceaux en ligne</string>
+    <string name="notification.text.media.plural">  nouveaux morceaux vienent d\'être publiés</string>
+    <string name="notification.ticker.news">BlackOut : une nouvelle actualité</string>
+    <string name="notification.text.news">Une  nouvelle actualité vient d\'être publiée</string>
+    <string name="notification.ticker.news.plural">BlackOut : de nouvelles actualités en ligne</string>
+    <string name="notification.text.news.plural">  nouvelles actualités vienent d\'être publiées</string>
+    <string name="notification.ticker.agenda">BlackOut : une nouvelle date de concert</string>
+    <string name="notification.text.agenda">Une  nouvelle date de concert vient d\'être annoncée</string>
+    <string name="notification.ticker.agenda.plural">BlackOut : de nouvelles dates de concert</string>
+    <string name="notification.text.agenda.plural">  nouvelles  dates de concert vienent d\'être annoncées</string>
+	<string name="featured">A la une : </string>
+</resources>

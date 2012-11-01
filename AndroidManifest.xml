@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.giwi.android.blackout"
+    android:versionCode="1"
+    android:versionName="1.6" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="9" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.STATUS_BAR" />
+    <!-- App receives GCM messages. -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <!-- GCM connects to Google Services. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- GCM requires a Google account. -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <!-- Keeps the processor from sleeping when a message is received. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <permission
+        android:name="org.giwi.android.blackout.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="org.giwi.android.blackout.permission.C2D_MESSAGE" />
+
+    <application
+        android:debuggable="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name" >
+        <activity
+            android:name="org.giwi.android.blackout.activities.BlackOutActivity_"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name="com.google.android.gcm.GCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="org.giwi.android.blackout" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".services.RssService"
+            android:process=":blackoutRssProcess" />
+        <service
+            android:name=".GCMIntentService"
+            android:process=":blackoutGcmProcess" />
+
+        <activity
+            android:name="org.giwi.android.blackout.activities.NewsActivity_"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity
+            android:name="org.giwi.android.blackout.activities.WebViewActivity_"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity
+            android:name="org.giwi.android.blackout.activities.AgendaActivity_"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity
+            android:name="org.giwi.android.blackout.activities.AboutActivity_"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity
+            android:name="org.giwi.android.blackout.activities.StreamingMp3Player_"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity
+            android:name="org.giwi.android.blackout.activities.DetailView_"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity
+            android:name="org.giwi.android.blackout.activities.MediaActivity_"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity
+            android:name="org.giwi.android.blackout.activities.TwitterActivity_"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+           <activity
+            android:name="org.giwi.android.blackout.activities.FeaturedActivity_"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+    </application>
+
+</manifest>
