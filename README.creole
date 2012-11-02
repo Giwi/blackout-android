@@ -11,6 +11,9 @@ This application allow you to :
   * directly dive into our wonderfull [[http://www.theblackout.fr|website]]. 
 
 Here's some [[http://code.google.com/p/blackout-android/wiki/screenshots|screenshots]]. 
-And you can download here : {{http://www.theblackout.fr/wordpress/wp-content/gallery/content/thumbs/thumbs_qrcode.png?i=1721294245}} [[http://www.theblackout.fr/giwisoft/BlackOut.apk|Download APK]]
+
+And you can download here : [[http://www.theblackout.fr/giwisoft/BlackOut.apk|Download APK]]
 
 {{https://github.com/Giwi/blackout-android/blob/master/res/drawable-xhdpi/splash.jpg?raw=true}}
+
+{{http://www.theblackout.fr/wordpress/wp-content/gallery/content/thumbs/thumbs_qrcode.png?i=1721294245}}
