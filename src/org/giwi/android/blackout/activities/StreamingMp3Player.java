@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnBufferingUpdateListener;
 import android.media.MediaPlayer.OnCompletionListener;
+import android.os.Handler;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -49,14 +50,15 @@ public class StreamingMp3Player extends Activity {
 	TextView status;
 	@ViewById(R.id.vsHeader)
 	ViewStub stub;
-
+	private final Handler handler = new Handler();
 	private MediaPlayer mediaPlayer;
 
 	/** This method initialise all the views in project */
 	@AfterViews
 	void initView() {
 		final View inflated = stub.inflate();
-		final TextView txtTitle = (TextView) inflated.findViewById(R.id.mainTitle);
+		final TextView txtTitle = (TextView) inflated
+				.findViewById(R.id.mainTitle);
 		final Button backBtn = (Button) inflated.findViewById(R.id.backIcon);
 		final Button menuBtn = (Button) inflated.findViewById(R.id.menuIcon);
 		menuBtn.setVisibility(View.GONE);
@@ -64,12 +66,14 @@ public class StreamingMp3Player extends Activity {
 		txtTitle.setText(getString(R.string.app_name) + " : " + title);
 		seekBarProgress.setMax(99); // It means 100% .0-99
 		mediaPlayer = new MediaPlayer();
-		mediaPlayer.setOnBufferingUpdateListener(new OnBufferingUpdateListener() {
-			@Override
-			public void onBufferingUpdate(final MediaPlayer mp, final int percent) {
-				secondarySeekBarProgressUpdater(percent);
-			}
-		});
+		mediaPlayer
+				.setOnBufferingUpdateListener(new OnBufferingUpdateListener() {
+					@Override
+					public void onBufferingUpdate(final MediaPlayer mp,
+							final int percent) {
+						secondarySeekBarProgressUpdater(percent);
+					}
+				});
 		mediaPlayer.setOnCompletionListener(new OnCompletionListener() {
 			@Override
 			public void onCompletion(final MediaPlayer mp) {
@@ -94,7 +98,8 @@ public class StreamingMp3Player extends Activity {
 	}
 
 	/**
-	 * ImageButton onClick event handler. Method which start/pause mediaplayer playing
+	 * ImageButton onClick event handler. Method which start/pause mediaplayer
+	 * playing
 	 */
 	@Click(R.id.button_play)
 	void buttonPlayPauseClick(final View view) {
@@ -109,25 +114,34 @@ public class StreamingMp3Player extends Activity {
 	}
 
 	/**
-	 * Method which updates the SeekBar primary progress by current song playing position
+	 * Method which updates the SeekBar primary progress by current song playing
+	 * position
 	 */
-	@UiThread(delay = 2000l)
 	void primarySeekBarProgressUpdater() {
-
 		// This math construction give a percentage of
 		// "was playing"/"song length"
 		try {
 			if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-				seekBarProgress.setProgress((int) ((float) mediaPlayer.getCurrentPosition() / mediaPlayer.getDuration() * 100));
-				primarySeekBarProgressUpdater();
+				seekBarProgress
+						.setProgress((int) ((float) mediaPlayer
+								.getCurrentPosition()
+								/ mediaPlayer.getDuration() * 100));
+				Runnable notification = new Runnable() {
+					@Override
+					public void run() {
+						primarySeekBarProgressUpdater();
+					}
+				};
+				handler.postDelayed(notification, 1000);
 			}
 		} catch (final Exception e) {
-			// Log.e(this.getClass().getName(), e.getMessage());
+			 Log.e(this.getClass().getName(), e.getMessage());
 		}
 	}
 
 	/**
-	 * Method which updates the SeekBar secondary progress by current song loading from URL position
+	 * Method which updates the SeekBar secondary progress by current song
+	 * loading from URL position
 	 */
 	@UiThread
 	void secondarySeekBarProgressUpdater(final int percent) {
@@ -146,11 +160,13 @@ public class StreamingMp3Player extends Activity {
 	}
 
 	/**
-	 * Seekbar onTouch event handler. Method which seeks MediaPlayer to seekBar primary progress position
+	 * Seekbar onTouch event handler. Method which seeks MediaPlayer to seekBar
+	 * primary progress position
 	 */
 	void seekMediaPlayerToSeekBarTouch(final View v) {
 		if (mediaPlayer.isPlaying()) {
-			mediaPlayer.seekTo(mediaPlayer.getDuration() / 100 * seekBarProgress.getProgress());
+			mediaPlayer.seekTo(mediaPlayer.getDuration() / 100
+					* seekBarProgress.getProgress());
 		}
 	}
 
