@@ -28,7 +28,7 @@
     <string name="featured_feed">http://www.theblackout.fr/wordpress/category/featured/feed/</string>
     <string name="buffering">buffering &#8230;</string>
     <string name="menu_refresh">Mettre à jour</string>
-    <string name="refresh_succes">Mise à jour réussie</string>
+    <string name="refresh_succes">Mise à jour réussie</string> 
     <string name="webSiteLink">http://www.theblackout.fr</string>
     <string name="tweeterLink">http://twitter.com/BlackoutBand</string>
     <string name="twitter_account">BlackOutBand</string>

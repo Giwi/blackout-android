@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.giwi.android.blackout;
 
@@ -15,7 +15,7 @@ import com.google.android.gcm.GCMBaseIntentService;
 
 /**
  * @author Xavier Marin | Giwi Softwares
- * 
+ *
  */
 public class GCMIntentService extends GCMBaseIntentService {
 
