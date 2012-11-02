@@ -7,21 +7,34 @@
     android:gravity="top|center"
     android:orientation="vertical" >
 
-<ViewStub  
-        android:id="@+id/vsHeader"  
-        android:layout_width="fill_parent"  
-        android:layout_height="wrap_content"  
-        android:inflatedId="@+id/header"  
-        android:layout="@layout/header" />  
+    <ViewStub
+        android:id="@+id/vsHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inflatedId="@+id/header"
+        android:layout="@layout/header" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:adjustViewBounds="false"
+        android:baselineAlignBottom="true"
+        android:cropToPadding="true"
+        android:maxHeight="120dip"
+        android:scaleType="centerCrop"
+        android:src="@drawable/splash" />
 
     <SeekBar
         android:id="@+id/progress_bar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hapticFeedbackEnabled="true"
         android:layout_marginLeft="10dip"
-        android:layout_marginRight="10dip" />
+        android:layout_marginRight="10dip"
+        android:hapticFeedbackEnabled="true" />
 
     <TextView
         android:id="@+id/textView2"
