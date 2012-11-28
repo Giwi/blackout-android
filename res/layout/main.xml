@@ -170,6 +170,7 @@
         style="@style/news_ticker"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:padding="15dip"
         android:background="@android:drawable/toast_frame" >
     </android.support.v4.view.ViewPager>
 
