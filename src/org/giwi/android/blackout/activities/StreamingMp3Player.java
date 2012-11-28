@@ -24,6 +24,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.googlecode.androidannotations.annotations.AfterViews;
+import com.googlecode.androidannotations.annotations.Background;
 import com.googlecode.androidannotations.annotations.Click;
 import com.googlecode.androidannotations.annotations.EActivity;
 import com.googlecode.androidannotations.annotations.Extra;
@@ -81,6 +82,18 @@ public class StreamingMp3Player extends Activity {
 				buttonPlayPause.setImageDrawable(playIcon);
 			}
 		});
+		seekBarProgress.setOnTouchListener(new OnTouchListener() {
+			@Override
+			public boolean onTouch(final View v, final MotionEvent event) {
+				seekMediaPlayerToSeekBarTouch(v);
+				return false;
+			}
+		});
+		starBuffering();
+	}
+
+	@Background
+	protected void starBuffering() {
 		try {
 			ProxySetting.setProxy();
 			mediaPlayer.setDataSource(listOfMedia.get(currentItem).getMedia());
@@ -89,13 +102,6 @@ public class StreamingMp3Player extends Activity {
 		} catch (final Exception e) {
 			Log.e(this.getClass().getName(), e.getMessage());
 		}
-		seekBarProgress.setOnTouchListener(new OnTouchListener() {
-			@Override
-			public boolean onTouch(final View v, final MotionEvent event) {
-				seekMediaPlayerToSeekBarTouch(v);
-				return false;
-			}
-		});
 	}
 
 	/**
