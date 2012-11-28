@@ -3,18 +3,17 @@ package org.giwi.android.blackout.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
-
-import com.googlecode.androidannotations.annotations.EBean;
-import com.googlecode.androidannotations.api.Scope;
 
 /**
  * @author Xavier Marin | Giwi Softwares
  * 
  *         The Class RSSItem.
  */
-@EBean(scope = Scope.Singleton)
-public class RSSItem {
+public class RSSItem implements Parcelable {
+	private int id;
 
 	/** The _title. */
 	private String _title = null;
@@ -215,5 +214,62 @@ public class RSSItem {
 	 */
 	public void setImgUrl(final String imgUrl) {
 		this.imgUrl = imgUrl;
+	}
+
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id
+	 *            the id to set
+	 */
+	public void setId(final int id) {
+		this.id = id;
+	}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(final Parcel dest, final int flags) {
+		dest.writeInt(id);
+		dest.writeString(_title);
+		dest.writeString(_description);
+		dest.writeString(_link);
+		dest.writeStringList(_category);
+		dest.writeString(_pubdate);
+		dest.writeString(imgUrl);
+		dest.writeString(_media);
+		dest.writeString(creator);
+	}
+
+	public static final Parcelable.Creator<RSSItem> CREATOR = new Parcelable.Creator<RSSItem>() {
+		@Override
+		public RSSItem createFromParcel(final Parcel source) {
+			return new RSSItem(source);
+		}
+
+		@Override
+		public RSSItem[] newArray(final int size) {
+			return new RSSItem[size];
+		}
+	};
+
+	public RSSItem(final Parcel in) {
+		id = in.readInt();
+		_title = in.readString();
+		_description = in.readString();
+		_link = in.readString();
+		in.readList(_category, this.getClass().getClassLoader());
+		_pubdate = in.readString();
+		imgUrl = in.readString();
+		_media = in.readString();
+		creator = in.readString();
 	}
 }

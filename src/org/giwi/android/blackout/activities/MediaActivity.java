@@ -88,7 +88,7 @@ public class MediaActivity extends ListActivity {
 
 	@ItemClick
 	void listItemClicked(final RSSItem selectedItem) {
-		StreamingMp3Player_.intent(getApplicationContext()).flags(Intent.FLAG_ACTIVITY_NEW_TASK).title(selectedItem.getTitle()).editTextSongURL(selectedItem.getMedia()).start();
+		StreamingMp3Player_.intent(getApplicationContext()).flags(Intent.FLAG_ACTIVITY_NEW_TASK).currentItem(selectedItem.getId()).listOfMedia(newsFeed).start();
 	}
 
 	@OptionsItem

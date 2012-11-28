@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/frameLayout1"
-     android:layout_width="fill_parent"  
-    android:layout_height="fill_parent"  
-    android:orientation="vertical" 
-    android:background="@drawable/bg" >
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical" >
 
     <ImageView
         android:id="@+id/splashscreen"
@@ -15,19 +15,20 @@
         android:scaleType="centerCrop"
         android:src="@drawable/splash"
         android:visibility="visible" />
-    
-<ViewStub
-    android:id="@+id/vsHeader"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:inflatedId="@+id/header"
-    android:layout="@layout/header"
-    android:visibility="visible" />
- 
+
+    <ViewStub
+        android:id="@+id/vsHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inflatedId="@+id/header"
+        android:layout="@layout/header"
+        android:visibility="visible" />
+
     <LinearLayout
         android:id="@+id/content"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
         android:baselineAligned="false"
         android:clipChildren="true"
         android:orientation="vertical"
@@ -54,42 +55,48 @@
 
             <Button
                 android:id="@+id/newsBtn"
-                android:layout_width="85dp"
-                android:layout_height="85dp"
+                android:layout_width="90dp"
+                android:layout_height="95dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="10dp"
-                android:background="@drawable/btbg"
+                android:layout_weight="1"
+                android:background="@android:drawable/toast_frame"
                 android:drawableTop="@drawable/ic_news"
                 android:gravity="bottom|center_horizontal"
-                android:padding="10dip"
                 android:hapticFeedbackEnabled="true"
-                android:text="@string/news" />
+                android:padding="15dip"
+                android:text="@string/news"
+                android:textColor="@android:color/primary_text_dark" />
 
             <Button
                 android:id="@+id/calendarBtn"
-                android:layout_width="85dp"
-                android:layout_height="85dp"
+                android:layout_width="90dp"
+                android:layout_height="95dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="10dp"
-                android:background="@drawable/btbg"
+                android:layout_weight="1"
+                android:background="@android:drawable/toast_frame"
                 android:drawableTop="@drawable/ic_cal"
                 android:gravity="bottom|center_horizontal"
-                android:padding="10dip"
                 android:hapticFeedbackEnabled="true"
-                android:text="@string/calendar" />
+                android:padding="15dip"
+                android:text="@string/calendar"
+                android:textColor="@android:color/primary_text_dark" />
 
             <Button
                 android:id="@+id/mediaBtn"
-                android:layout_width="85dp"
-                android:layout_height="85dp"
+                android:layout_width="90dp"
+                android:layout_height="95dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="10dp"
-                android:background="@drawable/btbg"
+                android:layout_weight="1"
+                android:background="@android:drawable/toast_frame"
                 android:drawableTop="@drawable/ic_media"
                 android:gravity="bottom|center_horizontal"
-                android:padding="10dip"
                 android:hapticFeedbackEnabled="true"
-                android:text="@string/media" />
+                android:padding="15dip"
+                android:text="@string/media"
+                android:textColor="@android:color/primary_text_dark" />
         </LinearLayout>
 
         <LinearLayout
@@ -100,46 +107,53 @@
             android:layout_weight="1"
             android:baselineAligned="false"
             android:visibility="visible" >
-            
+
             <Button
                 android:id="@+id/website"
-                android:layout_width="85dp"
-                android:layout_height="85dp"
+                android:layout_width="90dp"
+                android:layout_height="95dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="10dp"
-                android:background="@drawable/btbg"
+                android:layout_weight="1"
+                android:background="@android:drawable/toast_frame"
                 android:drawableTop="@drawable/ic_web"
                 android:gravity="bottom|center_horizontal"
-                android:padding="10dip"
                 android:hapticFeedbackEnabled="true"
-                android:text="@string/website" />
+                android:padding="15dip"
+                android:text="@string/website"
+                android:textColor="@android:color/primary_text_dark" />
 
             <Button
                 android:id="@+id/twitter"
-                android:layout_width="85dp"
-                android:layout_height="85dp"
+                android:layout_width="90dp"
+                android:layout_height="95dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="10dp"
-                android:background="@drawable/btbg"
+                android:layout_weight="1"
+                android:background="@android:drawable/toast_frame"
                 android:drawableTop="@drawable/ic_tweeter"
                 android:gravity="bottom|center_horizontal"
-                android:padding="10dip"
                 android:hapticFeedbackEnabled="true"
-                android:text="@string/twitter" />
+                android:padding="15dip"
+                android:text="@string/twitter"
+                android:textColor="@android:color/primary_text_dark" />
 
             <Button
                 android:id="@+id/aboutBtn"
-                android:layout_width="85dp"
-                android:layout_height="85dp"
+                android:layout_width="90dp"
+                android:layout_height="95dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="10dp"
-                android:background="@drawable/btbg"
+                android:layout_weight="1"
+                android:background="@android:drawable/toast_frame"
                 android:drawableTop="@drawable/info"
                 android:gravity="bottom|center_horizontal"
-                android:padding="10dip"
                 android:hapticFeedbackEnabled="true"
-                android:text="@string/about" />
+                android:padding="15dip"
+                android:text="@string/about"
+                android:textColor="@android:color/primary_text_dark" />
         </LinearLayout>
+
     </LinearLayout>
 
     <TextView
@@ -149,15 +163,14 @@
         android:layout_height="wrap_content"
         android:text="@string/featured"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-<android.support.v4.view.ViewPager
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/awesomepager"
-    style="@style/news_ticker"
-    android:background="@drawable/shadow_layer"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
-</android.support.v4.view.ViewPager>
 
-
+    <android.support.v4.view.ViewPager
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/awesomepager"
+        style="@style/news_ticker"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@android:drawable/toast_frame" >
+    </android.support.v4.view.ViewPager>
 
 </LinearLayout>

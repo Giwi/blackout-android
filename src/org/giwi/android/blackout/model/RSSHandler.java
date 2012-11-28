@@ -29,6 +29,7 @@ public class RSSHandler extends DefaultHandler {
 	private RSSItem currentFeed;
 	private StringBuilder buffer;
 	private String media_url;
+	private int i;
 
 	/*
 	 * Constructor
@@ -51,6 +52,7 @@ public class RSSHandler extends DefaultHandler {
 	@Override
 	public void startDocument() throws SAXException {
 		super.startDocument();
+		i = 0;
 		// initialize our RSSFeed object - this will hold our parsed contents
 		feed = new RSSFeed();
 		// initialize the RSSItem object - we will use this as a crutch to grab the info from the channel
@@ -143,6 +145,8 @@ public class RSSHandler extends DefaultHandler {
 		}
 		if (qName.equals(MEDIA)) {
 			currentFeed.setMedia(media_url);
+			currentFeed.setId(i);
+			i++;
 			buffer = null;
 		}
 		if (localName.equalsIgnoreCase(ITEM)) {

@@ -46,13 +46,49 @@
         android:textAppearance="?android:attr/textAppearanceSmall" >
     </TextView>
 
-    <ImageButton
-        android:id="@+id/button_play"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:contentDescription="@string/media"
-        android:hapticFeedbackEnabled="true"
-        android:src="@drawable/ic_action_play" />
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5dip"
+        android:layout_marginBottom="10dip"
+        android:background="@android:color/background_dark"  >
+
+        <ImageButton
+            android:id="@+id/button_prev"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dip"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/media"
+            android:hapticFeedbackEnabled="true"
+            android:src="@android:drawable/ic_media_previous" />
+
+        <ImageButton
+            android:id="@+id/button_play"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dip"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/media"
+            android:hapticFeedbackEnabled="true"
+            android:src="@android:drawable/ic_media_play" />
+
+        <ImageButton
+            android:id="@+id/button_next"
+         android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dip"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/media"
+            android:hapticFeedbackEnabled="true"
+            android:src="@android:drawable/ic_media_next" />
+    </LinearLayout>
 
 </LinearLayout>
