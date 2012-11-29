@@ -38,6 +38,11 @@ public class AboutActivity extends Activity {
 	}
 
 	public void btnHomeClick(final View v) {
-		super.onBackPressed();
+		BlackOutActivity_.intent(v.getContext()).start();
+	}
+
+	@Override
+	public void onBackPressed() {
+		BlackOutActivity_.intent(stub.getContext()).start();
 	}
 }

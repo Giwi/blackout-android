@@ -80,7 +80,6 @@ public class WebViewActivity extends Activity {
 
 	/*
 	 * (non-Javadoc)
-	 * 
 	 * @see android.app.Activity#onKeyDown(int, android.view.KeyEvent)
 	 */
 	@Override
@@ -93,6 +92,11 @@ public class WebViewActivity extends Activity {
 	}
 
 	public void btnHomeClick(final View v) {
-		super.onBackPressed();
+		BlackOutActivity_.intent(v.getContext()).start();
+	}
+
+	@Override
+	public void onBackPressed() {
+		BlackOutActivity_.intent(stub.getContext()).start();
 	}
 }
