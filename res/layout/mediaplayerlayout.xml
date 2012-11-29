@@ -14,81 +14,100 @@
         android:inflatedId="@+id/header"
         android:layout="@layout/header" />
 
-    <ImageView
-        android:id="@+id/imageView1"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginLeft="10dip"
-        android:layout_marginRight="10dip"
-        android:adjustViewBounds="false"
-        android:baselineAlignBottom="true"
-        android:cropToPadding="true"
-        android:maxHeight="120dip"
-        android:scaleType="centerCrop"
-        android:src="@drawable/splash" />
+        android:layout_height="wrap_content" >
 
-    <SeekBar
-        android:id="@+id/progress_bar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dip"
-        android:layout_marginRight="10dip"
-        android:hapticFeedbackEnabled="true" />
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="0dip"
+            android:layout_marginRight="0dip"
+            android:adjustViewBounds="false"
+            android:baselineAlignBottom="true"
+            android:contentDescription="@string/app_name"
+            android:cropToPadding="true"
+            android:maxHeight="120dip"
+            android:scaleType="centerCrop"
+            android:src="@drawable/splash" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dip"
-        android:layout_marginRight="10dip"
-        android:text=""
-        android:textAppearance="?android:attr/textAppearanceSmall" >
-    </TextView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="5dip"
-        android:layout_marginBottom="10dip"
-        android:background="@android:color/background_dark"  >
-
-        <ImageButton
-            android:id="@+id/button_prev"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="10dip"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/media"
-            android:hapticFeedbackEnabled="true"
-            android:src="@android:drawable/ic_media_previous" />
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="dip"
+            android:layout_marginBottom="0dip"
+            android:background="@android:color/background_dark" >
 
-        <ImageButton
-            android:id="@+id/button_play"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="10dip"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/media"
-            android:hapticFeedbackEnabled="true"
-            android:src="@android:drawable/ic_media_play" />
+            <ImageButton
+                android:id="@+id/button_prev"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dip"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/media"
+                android:hapticFeedbackEnabled="true"
+                android:src="@android:drawable/ic_media_previous" />
 
-        <ImageButton
-            android:id="@+id/button_next"
-         android:layout_width="0dp"
+            <ImageButton
+                android:id="@+id/button_play"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dip"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/media"
+                android:hapticFeedbackEnabled="true"
+                android:src="@android:drawable/ic_media_play" />
+
+            <ImageButton
+                android:id="@+id/button_next"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dip"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/media"
+                android:hapticFeedbackEnabled="true"
+                android:src="@android:drawable/ic_media_next" />
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="10dip"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/media"
-            android:hapticFeedbackEnabled="true"
-            android:src="@android:drawable/ic_media_next" />
-    </LinearLayout>
+            android:layout_above="@+id/linearLayout1"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_marginBottom="5dp"
+            android:hapticFeedbackEnabled="true" />
+
+        <ProgressBar
+            android:id="@+id/waitSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/progress_bar"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/progress_bar"
+            android:layout_alignParentLeft="true"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:visibility="gone" />
+
+    </RelativeLayout>
 
 </LinearLayout>

@@ -3,17 +3,4 @@
 
 Android application for the [[http://www.theblackout.fr|BlackOut]] band.
 
-This application allow you to :
-  * follow the news of the band
-  * be aware of the dates and places of incoming shows
-  * listen to our music  
-  * follow us on Twitter
-  * directly dive into our wonderfull [[http://www.theblackout.fr|website]]. 
-
-Here's some [[http://code.google.com/p/blackout-android/wiki/screenshots|screenshots]]. 
-
-And you can download here : [[http://www.theblackout.fr/giwisoft/BlackOut.apk|Download APK]]
-
-{{https://github.com/Giwi/blackout-android/blob/master/res/drawable-xhdpi/splash.jpg?raw=true}}
-
-{{http://www.theblackout.fr/wordpress/wp-content/gallery/content/thumbs/thumbs_qrcode.png?i=1721294245}}
+For more informations, see the [[https://github.com/Giwi/blackout-android/wiki|wiki]].

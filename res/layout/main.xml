@@ -60,13 +60,13 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:background="@android:drawable/toast_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:drawableTop="@drawable/ic_news"
                 android:gravity="bottom|center_horizontal"
                 android:hapticFeedbackEnabled="true"
                 android:padding="15dip"
                 android:text="@string/news"
-                android:textColor="@android:color/primary_text_dark" />
+                android:textColor="@android:color/primary_text_light" />
 
             <Button
                 android:id="@+id/calendarBtn"
@@ -75,13 +75,13 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:background="@android:drawable/toast_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:drawableTop="@drawable/ic_cal"
                 android:gravity="bottom|center_horizontal"
                 android:hapticFeedbackEnabled="true"
                 android:padding="15dip"
                 android:text="@string/calendar"
-                android:textColor="@android:color/primary_text_dark" />
+                android:textColor="@android:color/primary_text_light" />
 
             <Button
                 android:id="@+id/mediaBtn"
@@ -90,13 +90,13 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:background="@android:drawable/toast_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:drawableTop="@drawable/ic_media"
                 android:gravity="bottom|center_horizontal"
                 android:hapticFeedbackEnabled="true"
                 android:padding="15dip"
                 android:text="@string/media"
-                android:textColor="@android:color/primary_text_dark" />
+                android:textColor="@android:color/primary_text_light" />
         </LinearLayout>
 
         <LinearLayout
@@ -115,13 +115,13 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:background="@android:drawable/toast_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:drawableTop="@drawable/ic_web"
                 android:gravity="bottom|center_horizontal"
                 android:hapticFeedbackEnabled="true"
                 android:padding="15dip"
                 android:text="@string/website"
-                android:textColor="@android:color/primary_text_dark" />
+                android:textColor="@android:color/primary_text_light" />
 
             <Button
                 android:id="@+id/twitter"
@@ -130,13 +130,13 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:background="@android:drawable/toast_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:drawableTop="@drawable/ic_tweeter"
                 android:gravity="bottom|center_horizontal"
                 android:hapticFeedbackEnabled="true"
                 android:padding="15dip"
                 android:text="@string/twitter"
-                android:textColor="@android:color/primary_text_dark" />
+                android:textColor="@android:color/primary_text_light" />
 
             <Button
                 android:id="@+id/aboutBtn"
@@ -145,13 +145,13 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:background="@android:drawable/toast_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:drawableTop="@drawable/info"
                 android:gravity="bottom|center_horizontal"
                 android:hapticFeedbackEnabled="true"
                 android:padding="15dip"
                 android:text="@string/about"
-                android:textColor="@android:color/primary_text_dark" />
+                android:textColor="@android:color/primary_text_light" />
         </LinearLayout>
 
     </LinearLayout>
@@ -171,7 +171,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:padding="15dip"
-        android:background="@android:drawable/toast_frame" >
+        android:background="@android:drawable/alert_light_frame" >
     </android.support.v4.view.ViewPager>
 
 </LinearLayout>
