@@ -216,7 +216,7 @@ public class StreamingMp3Player extends Activity {
 	public void btnHomeClick(final View v) {
 		mediaPlayer.stop();
 		mediaPlayer.release();
-		MediaActivity_.intent(stub.getContext()).start();
+		MediaActivity_.intent(v.getContext()).start();
 	}
 
 }
