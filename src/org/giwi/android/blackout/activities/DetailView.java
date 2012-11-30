@@ -63,6 +63,9 @@ public class DetailView extends Activity {
 	@ViewById(R.id.detTitle)
 	TextView detTitle;
 
+	/**
+	 * 
+	 */
 	@AfterViews
 	protected void update() {
 		final View inflated = stub.inflate();
@@ -74,29 +77,32 @@ public class DetailView extends Activity {
 		menuBtn.setVisibility(View.GONE);
 		content.setMovementMethod(LinkMovementMethod.getInstance());
 		switch (type) {
-		case DATES:
-			more.setVisibility(View.GONE);
-			featuredImage.setVisibility(View.GONE);
-			break;
-		case NEWS:
-			storeCal.setVisibility(View.GONE);
-			if (imageUrl != null) {
-				final String fileName = imageUrl.substring(imageUrl.lastIndexOf('/') + 1, imageUrl.lastIndexOf('.'));
-				final Drawable drw = imageOperations(getApplicationContext(), imageUrl, fileName);
-				featuredImage.setImageDrawable(drw);
-			} else {
+			case DATES:
+				more.setVisibility(View.GONE);
 				featuredImage.setVisibility(View.GONE);
-			}
-			break;
-		case MEDIA:
-			featuredImage.setVisibility(View.GONE);
-		default:
-			break;
+				break;
+			case NEWS:
+				storeCal.setVisibility(View.GONE);
+				if (imageUrl != null) {
+					final String fileName = imageUrl.substring(imageUrl.lastIndexOf('/') + 1, imageUrl.lastIndexOf('.'));
+					final Drawable drw = imageOperations(getApplicationContext(), imageUrl, fileName);
+					featuredImage.setImageDrawable(drw);
+				} else {
+					featuredImage.setVisibility(View.GONE);
+				}
+				break;
+			case MEDIA:
+				featuredImage.setVisibility(View.GONE);
+			default:
+				break;
 		}
 	}
 
+	/**
+	 * @param v
+	 */
 	@Click(R.id.storeCal)
-	void storeCalClick(final View v) {
+	protected void storeCalClick(final View v) {
 		if (RSSTypes.DATES.equals(type)) {
 			final Intent intent = new Intent(Intent.ACTION_EDIT);
 			intent.setType("vnd.android.cursor.item/event");
@@ -113,27 +119,45 @@ public class DetailView extends Activity {
 		}
 	}
 
+	/**
+	 * @param v
+	 */
 	@Click(R.id.share)
-	void shareClick(final View v) {
+	protected void shareClick(final View v) {
 		final Intent MessIntent = new Intent(Intent.ACTION_SEND);
 		MessIntent.setType("text/plain");
 		MessIntent.putExtra(Intent.EXTRA_TEXT, htmlContent + " " + url);
 		DetailView.this.startActivity(Intent.createChooser(MessIntent, "Partager avec..."));
 	}
 
+	/**
+	 * @param v
+	 */
 	@Click(R.id.readMore)
-	void readMoreClick(final View v) {
+	protected void readMoreClick(final View v) {
 		WebViewActivity_.intent(getApplicationContext()).flags(Intent.FLAG_ACTIVITY_NEW_TASK).myUrl(url).title(titleContent).start();
 	}
 
-	public void btnHomeClick(final View v) {
+	/**
+	 * @param v
+	 */
+	protected void btnHomeClick(final View v) {
 		super.onBackPressed();
 	}
 
-	public void btnMenuClick(final View v) {
+	/**
+	 * @param v
+	 */
+	protected void btnMenuClick(final View v) {
 		openOptionsMenu();
 	}
 
+	/**
+	 * @param ctx
+	 * @param url
+	 * @param saveFilename
+	 * @return
+	 */
 	private Drawable imageOperations(final Context ctx, final String url, final String saveFilename) {
 		Log.i("img", saveFilename);
 		try {
@@ -149,6 +173,12 @@ public class DetailView extends Activity {
 		}
 	}
 
+	/**
+	 * @param address
+	 * @return
+	 * @throws MalformedURLException
+	 * @throws IOException
+	 */
 	private Object fetch(final String address) throws MalformedURLException, IOException {
 		final URL url = new URL(address);
 		final Object content = url.getContent();

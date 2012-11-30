@@ -51,9 +51,12 @@ public class TwitterActivity extends ListActivity {
 	String screenName;
 
 	private ProgressDialog m_ProgressDialog;
-	List<String> newsFeed;
+	protected List<String> newsFeed;
 	private ArrayAdapter<String> m_adapter;
 
+	/**
+	 * 
+	 */
 	@AfterViews
 	protected void update() {
 		final View inflated = stub.inflate();
@@ -65,15 +68,20 @@ public class TwitterActivity extends ListActivity {
 		getTwittFeed(false);
 	}
 
+	/**
+	 * @param toRefresh
+	 */
 	@Background
-	void getTwittFeed(final boolean toRefresh) {
-
+	protected void getTwittFeed(final boolean toRefresh) {
 		newsFeed = getTimeLine(toRefresh);
 		updateView(toRefresh);
 	}
 
+	/**
+	 * @param toRefresh
+	 */
 	@UiThread
-	void updateView(final boolean toRefresh) {
+	protected void updateView(final boolean toRefresh) {
 		if (newsFeed != null && newsFeed.size() > 0) {
 			m_adapter.clear();
 			m_adapter.notifyDataSetChanged();
@@ -88,8 +96,11 @@ public class TwitterActivity extends ListActivity {
 		}
 	}
 
+	/**
+	 * @param selectedItem
+	 */
 	@ItemClick
-	void listItemClicked(final String selectedItem) {
+	protected void listItemClicked(final String selectedItem) {
 		DetailView_.intent(getApplicationContext()).flags(Intent.FLAG_ACTIVITY_NEW_TASK).url("").titleContent("@" + screenName).htmlContent(selectedItem).type(RSSTypes.NEWS).start();
 	}
 
@@ -122,17 +133,26 @@ public class TwitterActivity extends ListActivity {
 		return result;
 	}
 
+	/**
+	 * 
+	 */
 	@OptionsItem
-	void refresh() {
+	protected void refresh() {
 		m_ProgressDialog = ProgressDialog.show(this, waitTitle, waitMessage, true);
 		getTwittFeed(true);
 	}
 
-	public void btnHomeClick(final View v) {
+	/**
+	 * @param v
+	 */
+	protected void btnHomeClick(final View v) {
 		super.onBackPressed();
 	}
 
-	public void btnMenuClick(final View v) {
+	/**
+	 * @param v
+	 */
+	protected void btnMenuClick(final View v) {
 		openOptionsMenu();
 	}
 }

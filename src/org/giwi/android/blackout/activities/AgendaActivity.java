@@ -52,6 +52,9 @@ public class AgendaActivity extends ListActivity {
 	private List<RSSItem> newsFeed = new ArrayList<RSSItem>();
 	private NewsAdapter m_adapter;
 
+	/**
+	 * 
+	 */
 	@AfterViews
 	protected void update() {
 		final View inflated = stub.inflate();
@@ -64,8 +67,11 @@ public class AgendaActivity extends ListActivity {
 		m_ProgressDialog = ProgressDialog.show(this, waitTitle, waitMessage, true);
 	}
 
+	/**
+	 * @param toRefresh
+	 */
 	@Background
-	void getNewsFeed(final boolean toRefresh) {
+	protected void getNewsFeed(final boolean toRefresh) {
 		try {
 			newsFeed = NewsFeedReader.getInstance().populate(theFeed, getApplicationContext(), RSSTypes.DATES, toRefresh);
 			Log.i("ARRAY", "" + newsFeed.size());
@@ -76,8 +82,11 @@ public class AgendaActivity extends ListActivity {
 		updateView(toRefresh);
 	}
 
+	/**
+	 * @param toRefresh
+	 */
 	@UiThread
-	void updateView(final boolean toRefresh) {
+	protected void updateView(final boolean toRefresh) {
 		if (newsFeed != null && newsFeed.size() > 0) {
 			m_adapter.clear();
 			m_adapter.notifyDataSetChanged();
@@ -92,8 +101,11 @@ public class AgendaActivity extends ListActivity {
 		}
 	}
 
+	/**
+	 * @param selectedItem
+	 */
 	@ItemClick
-	void listItemClicked(final RSSItem selectedItem) {
+	protected void listItemClicked(final RSSItem selectedItem) {
 		DetailView_
 				.intent(getApplicationContext())
 				.flags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -104,17 +116,35 @@ public class AgendaActivity extends ListActivity {
 								.replaceAll("</strong>", "</b>")).date(selectedItem.getPubDate()).type(RSSTypes.DATES).start();
 	}
 
+	/**
+	 * 
+	 */
 	@OptionsItem
-	void refresh() {
+	protected void refresh() {
 		m_ProgressDialog = ProgressDialog.show(this, waitTitle, waitMessage, true);
 		getNewsFeed(true);
 	}
 
-	public void btnHomeClick(final View v) {
-		super.onBackPressed();
+	/*
+	 * (non-Javadoc)
+	 * @see android.app.Activity#onBackPressed()
+	 */
+	@Override
+	public void onBackPressed() {
+		BlackOutActivity_.intent(stub.getContext()).start();
 	}
 
-	public void btnMenuClick(final View v) {
+	/**
+	 * @param v
+	 */
+	protected void btnHomeClick(final View v) {
+		BlackOutActivity_.intent(v.getContext()).start();
+	}
+
+	/**
+	 * @param v
+	 */
+	protected void btnMenuClick(final View v) {
 		openOptionsMenu();
 	}
 

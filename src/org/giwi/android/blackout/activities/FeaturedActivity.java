@@ -23,8 +23,7 @@ import com.googlecode.androidannotations.annotations.EFragment;
 import com.googlecode.androidannotations.annotations.ViewById;
 
 /**
- * @author b3605
- * 
+ * @author Xavier Marin | Giwi Softwares
  */
 @EFragment(R.layout.featured)
 public class FeaturedActivity extends Fragment {
@@ -33,8 +32,11 @@ public class FeaturedActivity extends Fragment {
 	@ViewById(R.id.featuredText)
 	TextView featuredText;
 
+	/**
+	 * 
+	 */
 	@AfterViews
-	void initFragment() {
+	protected void initFragment() {
 		featuredText.setText(Html.fromHtml(getArguments().getString("text")));
 		final String url = getArguments().getString("imageURL");
 		final String fileName = url.substring(url.lastIndexOf('/') + 1, url.lastIndexOf('.'));
@@ -42,6 +44,12 @@ public class FeaturedActivity extends Fragment {
 		fragmentFeaturedMain.setImageDrawable(drw);
 	}
 
+	/**
+	 * @param ctx
+	 * @param url
+	 * @param saveFilename
+	 * @return
+	 */
 	private Drawable imageOperations(final Context ctx, final String url, final String saveFilename) {
 		Log.i("img", saveFilename);
 		try {
@@ -57,6 +65,12 @@ public class FeaturedActivity extends Fragment {
 		}
 	}
 
+	/**
+	 * @param address
+	 * @return
+	 * @throws MalformedURLException
+	 * @throws IOException
+	 */
 	private Object fetch(final String address) throws MalformedURLException, IOException {
 		final URL url = new URL(address);
 		final Object content = url.getContent();

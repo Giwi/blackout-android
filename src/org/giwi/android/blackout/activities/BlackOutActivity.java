@@ -63,20 +63,31 @@ public class BlackOutActivity extends FragmentActivity {
 	@StringRes(R.string.featured_feed)
 	String theFeed;
 
-	protected boolean pagerReady = false;
-
+	private boolean pagerReady = false;
+	private boolean splashDone = false;
 	private PagerAdapter mPagerAdapter;
 
+	/**
+	 * 
+	 */
 	@AfterViews
 	protected void update() {
 		startService();
-		stopSplash();
+		if (!splashDone) {
+			stopSplash();
+		} else {
+			hideSplash(null);
+		}
 		initialisePaging();
 		handler.postDelayed(drawer, 5000);
 	}
 
 	private final Handler handler = new Handler();
 	private final Runnable drawer = new Runnable() {
+		/*
+		 * (non-Javadoc)
+		 * @see java.lang.Runnable#run()
+		 */
 		@Override
 		public void run() {
 			if (pagerReady) {
@@ -95,8 +106,7 @@ public class BlackOutActivity extends FragmentActivity {
 	 * Register device with GCM
 	 */
 	@Background
-	void startService() {
-
+	protected void startService() {
 		GCMRegistrar.checkDevice(this);
 		GCMRegistrar.checkManifest(this);
 		final String regId = GCMRegistrar.getRegistrationId(this);
@@ -108,44 +118,69 @@ public class BlackOutActivity extends FragmentActivity {
 		}
 	}
 
+	/**
+	 * @param v
+	 */
 	@Click(R.id.splashscreen)
-	void hideSplash(final View v) {
+	protected void hideSplash(final View v) {
 		splash.setVisibility(View.GONE);
 		content.setVisibility(View.VISIBLE);
 	}
 
+	/**
+	 * 
+	 */
 	@UiThread(delay = 3000l)
-	void stopSplash() {
+	protected void stopSplash() {
 		hideSplash(null);
+		splashDone = true;
 	}
 
+	/**
+	 * @param view
+	 */
 	@Click(R.id.newsBtn)
-	void newBtnClick(final View view) {
+	protected void newBtnClick(final View view) {
 		NewsActivity_.intent(view.getContext()).start();
 	}
 
+	/**
+	 * @param view
+	 */
 	@Click(R.id.calendarBtn)
-	void calendarBtnClick(final View view) {
+	protected void calendarBtnClick(final View view) {
 		AgendaActivity_.intent(view.getContext()).start();
 	}
 
+	/**
+	 * @param view
+	 */
 	@Click(R.id.mediaBtn)
-	void buttonMediaClick(final View view) {
+	protected void buttonMediaClick(final View view) {
 		MediaActivity_.intent(view.getContext()).start();
 	}
 
+	/**
+	 * @param view
+	 */
 	@Click(R.id.aboutBtn)
-	void buttonAboutClick(final View view) {
+	protected void buttonAboutClick(final View view) {
 		AboutActivity_.intent(view.getContext()).start();
 	}
 
+	/**
+	 * @param view
+	 */
 	@Click(R.id.website)
-	void websiteBtnClick(final View view) {
+	protected void websiteBtnClick(final View view) {
 		WebViewActivity_.intent(view.getContext()).myUrl(getResources().getString(R.string.webSiteLink)).title((String) getResources().getText(R.string.app_name)).start();
 	}
 
+	/**
+	 * @param view
+	 */
 	@Click(R.id.twitter)
-	void twitterBtnClick(final View view) {
+	protected void twitterBtnClick(final View view) {
 		WebViewActivity_.intent(view.getContext()).myUrl(getResources().getString(R.string.tweeterLink)).title((String) getResources().getText(R.string.app_name)).start();
 		// TwitterActivity_.intent(view.getContext()).start();
 	}
@@ -156,7 +191,6 @@ public class BlackOutActivity extends FragmentActivity {
 	@Background
 	protected void initialisePaging() {
 		final List<Fragment> fragments = new ArrayList<Fragment>();
-
 		final List<RSSItem> newsFeed = NewsFeedReader.getInstance().populate(theFeed, getApplicationContext(), RSSTypes.NEWS, true);
 		for (final RSSItem item : newsFeed) {
 			item.sanitizeDesc();
@@ -168,6 +202,11 @@ public class BlackOutActivity extends FragmentActivity {
 
 	}
 
+	/**
+	 * @param imageURL
+	 * @param text
+	 * @return
+	 */
 	private FeaturedActivity_ newInstance(final String imageURL, final String text) {
 		final FeaturedActivity_ fragment = new FeaturedActivity_();
 		final Bundle args = new Bundle();

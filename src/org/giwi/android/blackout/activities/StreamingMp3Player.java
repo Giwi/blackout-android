@@ -64,7 +64,7 @@ public class StreamingMp3Player extends Activity {
 
 	/** This method initialise all the views in project */
 	@AfterViews
-	void initView() {
+	protected void initView() {
 		final View inflated = stub.inflate();
 		txtTitle = (TextView) inflated.findViewById(R.id.mainTitle);
 		final Button backBtn = (Button) inflated.findViewById(R.id.backIcon);
@@ -108,6 +108,9 @@ public class StreamingMp3Player extends Activity {
 		starBuffering(i);
 	}
 
+	/**
+	 * @param i
+	 */
 	@Background
 	protected void starBuffering(int i) {
 		try {
@@ -124,7 +127,7 @@ public class StreamingMp3Player extends Activity {
 	 * ImageButton onClick event handler. Method which start/pause mediaplayer playing
 	 */
 	@Click(R.id.button_play)
-	void buttonPlayPauseClick(final View view) {
+	protected void buttonPlayPauseClick(final View view) {
 		if (!started) {
 			return;
 		}
@@ -138,8 +141,11 @@ public class StreamingMp3Player extends Activity {
 		// primarySeekBarProgressUpdater();
 	}
 
+	/**
+	 * @param view
+	 */
 	@Click(R.id.button_next)
-	void buttonNextClick(final View view) {
+	protected void buttonNextClick(final View view) {
 		if (currentItem + 1 < listOfMedia.size()) {
 			currentItem += 1;
 			mediaPlayer.reset();
@@ -147,8 +153,11 @@ public class StreamingMp3Player extends Activity {
 		}
 	}
 
+	/**
+	 * @param view
+	 */
 	@Click(R.id.button_prev)
-	void buttonPrevClick(final View view) {
+	protected void buttonPrevClick(final View view) {
 		if (currentItem - 1 >= 0) {
 			currentItem -= 1;
 			mediaPlayer.reset();
@@ -159,7 +168,7 @@ public class StreamingMp3Player extends Activity {
 	/**
 	 * Method which updates the SeekBar primary progress by current song playing position
 	 */
-	void primarySeekBarProgressUpdater() {
+	protected void primarySeekBarProgressUpdater() {
 		// This math construction give a percentage of
 		// "was playing"/"song length"
 		try {
@@ -180,9 +189,11 @@ public class StreamingMp3Player extends Activity {
 
 	/**
 	 * Method which updates the SeekBar secondary progress by current song loading from URL position
+	 * 
+	 * @param percent
 	 */
 	@UiThread
-	void secondarySeekBarProgressUpdater(final int percent) {
+	protected void secondarySeekBarProgressUpdater(final int percent) {
 		if (percent >= 99) {
 			status.setText("loaded");
 		}
@@ -196,9 +207,12 @@ public class StreamingMp3Player extends Activity {
 		status.setText("buffering " + percent + "%");
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see android.app.Activity#onBackPressed()
+	 */
 	@Override
 	public void onBackPressed() {
-		// super.onBackPressed();
 		mediaPlayer.stop();
 		mediaPlayer.release();
 		MediaActivity_.intent(stub.getContext()).start();
@@ -206,14 +220,19 @@ public class StreamingMp3Player extends Activity {
 
 	/**
 	 * Seekbar onTouch event handler. Method which seeks MediaPlayer to seekBar primary progress position
+	 * 
+	 * @param v
 	 */
-	void seekMediaPlayerToSeekBarTouch(final View v) {
+	protected void seekMediaPlayerToSeekBarTouch(final View v) {
 		if (mediaPlayer.isPlaying()) {
 			mediaPlayer.seekTo(mediaPlayer.getDuration() / 100 * seekBarProgress.getProgress());
 		}
 	}
 
-	public void btnHomeClick(final View v) {
+	/**
+	 * @param v
+	 */
+	protected void btnHomeClick(final View v) {
 		mediaPlayer.stop();
 		mediaPlayer.release();
 		MediaActivity_.intent(v.getContext()).start();

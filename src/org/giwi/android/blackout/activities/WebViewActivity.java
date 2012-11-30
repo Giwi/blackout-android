@@ -34,6 +34,9 @@ public class WebViewActivity extends Activity {
 	@ViewById(R.id.vsHeader)
 	ViewStub stub;
 
+	/**
+	 * 
+	 */
 	@AfterViews
 	protected void update() {
 		final View inflated = stub.inflate();
@@ -51,8 +54,11 @@ public class WebViewActivity extends Activity {
 
 	}
 
+	/**
+	 * 
+	 */
 	@UiThread
-	void loaded() {
+	protected void loaded() {
 		m_ProgressDialog.dismiss();
 	}
 
@@ -60,17 +66,29 @@ public class WebViewActivity extends Activity {
 	 * @author Xavier Marin
 	 */
 	private class BOWebViewClient extends WebViewClient {
+		/*
+		 * (non-Javadoc)
+		 * @see android.webkit.WebViewClient#shouldOverrideUrlLoading(android.webkit.WebView, java.lang.String)
+		 */
 		@Override
 		public boolean shouldOverrideUrlLoading(final WebView view, final String url) {
 			view.loadUrl(url);
 			return true;
 		}
 
+		/*
+		 * (non-Javadoc)
+		 * @see android.webkit.WebViewClient#onReceivedError(android.webkit.WebView, int, java.lang.String, java.lang.String)
+		 */
 		@Override
 		public void onReceivedError(final WebView view, final int errorCode, final String description, final String failingUrl) {
 			Toast.makeText(WebViewActivity.this, "Oh no! " + description, Toast.LENGTH_SHORT).show();
 		}
 
+		/*
+		 * (non-Javadoc)
+		 * @see android.webkit.WebViewClient#onPageFinished(android.webkit.WebView, java.lang.String)
+		 */
 		@Override
 		public void onPageFinished(final WebView view, final String url) {
 			super.onPageFinished(view, url);
@@ -91,10 +109,17 @@ public class WebViewActivity extends Activity {
 		return super.onKeyDown(keyCode, event);
 	}
 
-	public void btnHomeClick(final View v) {
+	/**
+	 * @param v
+	 */
+	protected void btnHomeClick(final View v) {
 		BlackOutActivity_.intent(v.getContext()).start();
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see android.app.Activity#onBackPressed()
+	 */
 	@Override
 	public void onBackPressed() {
 		BlackOutActivity_.intent(stub.getContext()).start();
