@@ -125,20 +125,11 @@ public class AgendaActivity extends ListActivity {
 		getNewsFeed(true);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see android.app.Activity#onBackPressed()
-	 */
-	@Override
-	public void onBackPressed() {
-		BlackOutActivity_.intent(stub.getContext()).start();
-	}
-
 	/**
 	 * @param v
 	 */
 	protected void btnHomeClick(final View v) {
-		BlackOutActivity_.intent(v.getContext()).start();
+		super.onBackPressed();
 	}
 
 	/**

@@ -215,5 +215,4 @@ public class BlackOutActivity extends FragmentActivity {
 		fragment.setArguments(args);
 		return fragment;
 	}
-
 }

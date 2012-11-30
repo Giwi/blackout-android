@@ -138,7 +138,6 @@ public class StreamingMp3Player extends Activity {
 			mediaPlayer.pause();
 			buttonPlayPause.setImageDrawable(playIcon);
 		}
-		// primarySeekBarProgressUpdater();
 	}
 
 	/**
@@ -215,7 +214,7 @@ public class StreamingMp3Player extends Activity {
 	public void onBackPressed() {
 		mediaPlayer.stop();
 		mediaPlayer.release();
-		MediaActivity_.intent(stub.getContext()).start();
+		super.onBackPressed();
 	}
 
 	/**
@@ -235,7 +234,7 @@ public class StreamingMp3Player extends Activity {
 	protected void btnHomeClick(final View v) {
 		mediaPlayer.stop();
 		mediaPlayer.release();
-		MediaActivity_.intent(v.getContext()).start();
+		super.onBackPressed();
 	}
 
 }

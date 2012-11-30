@@ -41,15 +41,7 @@ public class AboutActivity extends Activity {
 	 * @param v
 	 */
 	protected void btnHomeClick(final View v) {
-		BlackOutActivity_.intent(v.getContext()).start();
+		super.onBackPressed();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see android.app.Activity#onBackPressed()
-	 */
-	@Override
-	public void onBackPressed() {
-		BlackOutActivity_.intent(stub.getContext()).start();
-	}
 }

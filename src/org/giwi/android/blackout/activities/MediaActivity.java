@@ -116,16 +116,7 @@ public class MediaActivity extends ListActivity {
 	 * @param v
 	 */
 	protected void btnHomeClick(final View v) {
-		BlackOutActivity_.intent(v.getContext()).start();
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * @see android.app.Activity#onBackPressed()
-	 */
-	@Override
-	public void onBackPressed() {
-		BlackOutActivity_.intent(stub.getContext()).start();
+		super.onBackPressed();
 	}
 
 	/**
