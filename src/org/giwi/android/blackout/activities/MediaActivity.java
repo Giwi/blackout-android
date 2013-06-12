@@ -115,7 +115,7 @@ public class MediaActivity extends ListActivity {
 	/**
 	 * @param v
 	 */
-	protected void btnHomeClick(final View v) {
+	public void btnHomeClick(final View v) {
 		super.onBackPressed();
 	}
 

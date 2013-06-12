@@ -26,6 +26,7 @@ import android.widget.Toast;
 
 import com.googlecode.androidannotations.annotations.AfterViews;
 import com.googlecode.androidannotations.annotations.Background;
+import com.googlecode.androidannotations.annotations.Click;
 import com.googlecode.androidannotations.annotations.EActivity;
 import com.googlecode.androidannotations.annotations.ItemClick;
 import com.googlecode.androidannotations.annotations.OptionsItem;
@@ -145,14 +146,15 @@ public class TwitterActivity extends ListActivity {
 	/**
 	 * @param v
 	 */
-	protected void btnHomeClick(final View v) {
+	@Click(R.id.backIcon)
+	public void btnHomeClick(final View v) {
 		super.onBackPressed();
 	}
 
 	/**
 	 * @param v
 	 */
-	protected void btnMenuClick(final View v) {
+	public void btnMenuClick(final View v) {
 		openOptionsMenu();
 	}
 }

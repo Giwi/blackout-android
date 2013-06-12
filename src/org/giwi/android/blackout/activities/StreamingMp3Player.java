@@ -124,7 +124,8 @@ public class StreamingMp3Player extends Activity {
 	}
 
 	/**
-	 * ImageButton onClick event handler. Method which start/pause mediaplayer playing
+	 * ImageButton onClick event handler. Method which start/pause mediaplayer
+	 * playing
 	 */
 	@Click(R.id.button_play)
 	protected void buttonPlayPauseClick(final View view) {
@@ -165,7 +166,8 @@ public class StreamingMp3Player extends Activity {
 	}
 
 	/**
-	 * Method which updates the SeekBar primary progress by current song playing position
+	 * Method which updates the SeekBar primary progress by current song playing
+	 * position
 	 */
 	protected void primarySeekBarProgressUpdater() {
 		// This math construction give a percentage of
@@ -187,7 +189,8 @@ public class StreamingMp3Player extends Activity {
 	}
 
 	/**
-	 * Method which updates the SeekBar secondary progress by current song loading from URL position
+	 * Method which updates the SeekBar secondary progress by current song
+	 * loading from URL position
 	 * 
 	 * @param percent
 	 */
@@ -218,7 +221,8 @@ public class StreamingMp3Player extends Activity {
 	}
 
 	/**
-	 * Seekbar onTouch event handler. Method which seeks MediaPlayer to seekBar primary progress position
+	 * Seekbar onTouch event handler. Method which seeks MediaPlayer to seekBar
+	 * primary progress position
 	 * 
 	 * @param v
 	 */
@@ -231,7 +235,7 @@ public class StreamingMp3Player extends Activity {
 	/**
 	 * @param v
 	 */
-	protected void btnHomeClick(final View v) {
+	public void btnHomeClick(final View v) {
 		mediaPlayer.stop();
 		mediaPlayer.release();
 		super.onBackPressed();

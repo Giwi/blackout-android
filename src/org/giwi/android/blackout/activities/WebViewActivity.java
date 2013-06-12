@@ -4,6 +4,7 @@ import org.giwi.android.blackout.R;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewStub;
@@ -50,6 +51,7 @@ public class WebViewActivity extends Activity {
 		mWebView.setWebViewClient(new BOWebViewClient());
 		mWebView.getSettings().setJavaScriptEnabled(true);
 		m_ProgressDialog = ProgressDialog.show(WebViewActivity.this, getResources().getText(R.string.wait_title), getResources().getText(R.string.wait_message), true);
+		Log.i("WebView", myUrl);
 		mWebView.loadUrl(myUrl);
 
 	}
@@ -68,7 +70,9 @@ public class WebViewActivity extends Activity {
 	private class BOWebViewClient extends WebViewClient {
 		/*
 		 * (non-Javadoc)
-		 * @see android.webkit.WebViewClient#shouldOverrideUrlLoading(android.webkit.WebView, java.lang.String)
+		 * @see
+		 * android.webkit.WebViewClient#shouldOverrideUrlLoading(android.webkit
+		 * .WebView, java.lang.String)
 		 */
 		@Override
 		public boolean shouldOverrideUrlLoading(final WebView view, final String url) {
@@ -78,7 +82,9 @@ public class WebViewActivity extends Activity {
 
 		/*
 		 * (non-Javadoc)
-		 * @see android.webkit.WebViewClient#onReceivedError(android.webkit.WebView, int, java.lang.String, java.lang.String)
+		 * @see
+		 * android.webkit.WebViewClient#onReceivedError(android.webkit.WebView,
+		 * int, java.lang.String, java.lang.String)
 		 */
 		@Override
 		public void onReceivedError(final WebView view, final int errorCode, final String description, final String failingUrl) {
@@ -87,7 +93,9 @@ public class WebViewActivity extends Activity {
 
 		/*
 		 * (non-Javadoc)
-		 * @see android.webkit.WebViewClient#onPageFinished(android.webkit.WebView, java.lang.String)
+		 * @see
+		 * android.webkit.WebViewClient#onPageFinished(android.webkit.WebView,
+		 * java.lang.String)
 		 */
 		@Override
 		public void onPageFinished(final WebView view, final String url) {
@@ -112,7 +120,7 @@ public class WebViewActivity extends Activity {
 	/**
 	 * @param v
 	 */
-	protected void btnHomeClick(final View v) {
+	public void btnHomeClick(final View v) {
 		super.onBackPressed();
 	}
 

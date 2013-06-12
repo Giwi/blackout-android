@@ -127,14 +127,14 @@ public class NewsActivity extends ListActivity {
 	/**
 	 * @param v
 	 */
-	protected void btnHomeClick(final View v) {
+	public void btnHomeClick(final View v) {
 		super.onBackPressed();
 	}
 
 	/**
 	 * @param v
 	 */
-	protected void btnMenuClick(final View v) {
+	public void btnMenuClick(final View v) {
 		openOptionsMenu();
 	}
 }
